@@ -1,33 +1,28 @@
-import { Player } from "taleem-player";
-import { WebRenderer } from "../renderer-web/WebRenderer.js";
+import { renderTemplates } from "../renderer-web/templates/index.js";
 import { loadDeck } from "./loadDeck.js";
 
 const root = document.getElementById("app");
-const renderer = new WebRenderer(root);
 
 (async () => {
-  const deck = await loadDeck("/decks/demo_deck.json");
-  const player = new Player(deck);
+  const deck = await loadDeck("/decks/goldstandar_eq_28aug25.json");
 
-  let index = 0;
+  deck.deck.forEach((slide, index) => {
+    const render = renderTemplates[slide.type];
 
-  function renderCurrent() {
-    const frame = player.getFrameByIndex(index);
-    renderer.render(frame);
-  }
-
-  // initial render
-  renderCurrent();
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
-      index = Math.min(index + 1, player.slides.length - 1);
-      renderCurrent();
+    if (!render) {
+      root.innerHTML += `
+        <pre style="color:red">
+Missing renderer for slide type: ${slide.type}
+        </pre>
+      `;
+      return;
     }
 
-    if (e.key === "ArrowLeft") {
-      index = Math.max(index - 1, 0);
-      renderCurrent();
-    }
+    const html = render(slide);
+    const wrapper = document.createElement("div");
+    wrapper.className = "static-preview-slide";
+    wrapper.innerHTML = html;
+
+    root.appendChild(wrapper);
   });
 })();
