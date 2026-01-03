@@ -1,0 +1,16 @@
+{
+    "name": "taleem-html",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "vite": "^4.5.14"
+    },
+    "dependencies": {
+        "taleem-core": "^1.0.0",
+        "taleem-player": "^0.0.2"
+    }
+}

@@ -1,4 +1,4 @@
-import { Player } from "../player/Player.js";
+import { Player } from "taleem-player";
 import { WebRenderer } from "../renderer-web/WebRenderer.js";
 import { loadDeck } from "./loadDeck.js";
 
