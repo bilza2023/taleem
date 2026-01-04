@@ -13,7 +13,7 @@ function showSlide(i) {
 }
 
 (async () => {
-  const deck = await loadDeck("/decks/demo_deck.json");
+  const deck = await loadDeck("/decks/goldstandar_eq_28aug25.json");
 
   // interpret once
   slides = slideBuilder(deck);

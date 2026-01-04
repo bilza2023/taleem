@@ -1,0 +1,29 @@
+/* base slide reset */
+.slide {
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  /* TITLE SLIDE / IMAGE WITH TITLE CHECK */
+  .imageWithTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    text-align: center;
+    padding: 4rem;
+  }
+  
+  .imageWithTitle img {
+    max-width: 320px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  .imageWithTitle h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
