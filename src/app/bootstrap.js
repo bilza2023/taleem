@@ -1,29 +1,33 @@
-
-import { renderTemplates } from "../renderer-web/templates/index.js";
+// import { slideBuilder } from "../slides/index.js";
+import { slideBuilder } from "taleem-slides";
 import { loadDeck } from "./loadDeck.js";
 
 const root = document.getElementById("app");
 
+let slides = [];
+let index = 0;
+
+function showSlide(i) {
+  const slide = slides[i];
+  root.innerHTML = slide.render(); // ← HTML STRING
+}
+
 (async () => {
-  const deck = await loadDeck("/decks/goldstandar_eq_28aug25.json");
+  const deck = await loadDeck("/decks/demo_deck.json");
 
-  deck.deck.forEach((slide, index) => {
-    const render = renderTemplates[slide.type];
+  // interpret once
+  slides = slideBuilder(deck);
 
-    if (!render) {
-      root.innerHTML += `
-        <pre style="color:red">
-Missing renderer for slide type: ${slide.type}
-        </pre>
-      `;
-      return;
+  showSlide(index);
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight" && index < slides.length - 1) {
+      index++;
+      showSlide(index);
     }
-
-    const html = render(slide);
-    const wrapper = document.createElement("div");
-    wrapper.className = "static-preview-slide";
-    wrapper.innerHTML = html;
-
-    root.appendChild(wrapper);
+    if (e.key === "ArrowLeft" && index > 0) {
+      index--;
+      showSlide(index);
+    }
   });
 })();
