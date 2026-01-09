@@ -5,8 +5,8 @@
   "status": "draft",
 "background": {
   "backgroundColor": "#cc4d82",
-  "backgroundImage": null,
-  "backgroundImageOpacity": 0.05
+"backgroundImage": "/media/images/wood.jpg",
+  "backgroundImageOpacity": 0.5
 },
 
   "deck": [
