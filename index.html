@@ -2,16 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taleem HTML</title>
-<style>
-  .app {border: 2px solide red;}
-</style>
-  <!-- shared slide styles -->
+  <title>Taleem – Slides Demo</title>
+
   <link rel="stylesheet" href="/src/styles/slides.css" />
+
+  <style>
+    body {
+      margin: 0;
+      background: #0e0f14;
+      color: #eaeaf0;
+      font-family: system-ui, sans-serif;
+    }
+
+    #app {
+      min-height: 100vh;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="app" id="app"></div>
+  <div id="app"></div>
 
   <script type="module" src="/src/app/bootstrap.js"></script>
 </body>

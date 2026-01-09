@@ -10,8 +10,6 @@
         "vite": "^4.5.14"
     },
     "dependencies": {
-        "taleem-core": "^1.0.0",
-        "taleem-slides" : "file:../taleem-slides"
-
+        "taleem-slides": "^0.3.0"
     }
 }
