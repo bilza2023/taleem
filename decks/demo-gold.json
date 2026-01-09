@@ -1,0 +1,53 @@
+{
+  "version": "deck-v1",
+  "name": "demo_gold_core_slides",
+  "description": "Gold-standard core slides (1–4) for styling",
+  "status": "draft",
+  "background": {
+    "backgroundColor": "#0e0f14",
+    "backgroundImage": "/media/images/box.webp",
+    "backgroundImageOpacity": 0.05
+  },
+  "deck": [
+    {
+      "type": "titleSlide",
+      "start": 0,
+      "end": 6,
+      "data": [
+        { "name": "title", "content": "Taleem Slides – Core", "showAt": 0 }
+      ]
+    },
+    {
+      "type": "titleAndSubtitle",
+      "start": 6,
+      "end": 14,
+      "data": [
+        { "name": "title", "content": "Clean Educational Slides", "showAt": 6 },
+        { "name": "subtitle", "content": "Gold standard for layout and style", "showAt": 7 }
+      ]
+    },
+    {
+      "type": "titleAndPara",
+      "start": 14,
+      "end": 28,
+      "data": [
+        { "name": "title", "content": "What This Is", "showAt": 14 },
+        {
+          "name": "para",
+          "content": "This slide defines the baseline visual language. If this looks right, everything else will follow.",
+          "showAt": 15
+        }
+      ]
+    },
+    {
+      "type": "bulletList",
+      "start": 28,
+      "end": 44,
+      "data": [
+        { "name": "bullet", "content": "One clear idea per slide", "showAt": 28 },
+        { "name": "bullet", "content": "Calm spacing and readable text", "showAt": 30 },
+        { "name": "bullet", "content": "No animation assumptions", "showAt": 32 }
+      ]
+    }
+  ]
+}
