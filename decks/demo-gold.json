@@ -4,8 +4,8 @@
   "description": "Gold-standard core slides (1–4) for styling",
   "status": "draft",
 "background": {
-  "backgroundColor": "#cc4d82",
-"backgroundImage": "/media/images/wood.jpg",
+  "backgroundColor": "#081b7a",
+"backgroundImage": null,
   "backgroundImageOpacity": 0.5
 },
 
