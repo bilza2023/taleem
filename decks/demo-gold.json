@@ -3,11 +3,12 @@
   "name": "demo_gold_core_slides",
   "description": "Gold-standard core slides (1–4) for styling",
   "status": "draft",
-  "background": {
-    "backgroundColor": "#0e0f14",
-    "backgroundImage": "/media/images/box.webp",
-    "backgroundImageOpacity": 0.05
-  },
+"background": {
+  "backgroundColor": "#cc4d82",
+  "backgroundImage": null,
+  "backgroundImageOpacity": 0.05
+},
+
   "deck": [
     {
       "type": "titleSlide",

@@ -17,6 +17,29 @@
     #app {
       min-height: 100vh;
     }
+    /* ===============================
+   Deck Layers
+   =============================== */
+#app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#deck-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-size: cover;
+  background-position: center;
+}
+
+#deck-slide {
+  position: relative;
+  z-index: 1;
+}
+
   </style>
 </head>
 <body>
