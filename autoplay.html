@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem – Autoplay Demo</title>
+
+  <!-- Core slide styles -->
+  <link rel="stylesheet" href="/src/styles/slides.css" />
+
+  <style>
+    :root {
+      background: var(--backgroundColor);
+      color: var(--primaryColor);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ===============================
+       App Mount
+       =============================== */
+    #app {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* These are injected by taleem-browser,
+       but keeping styles here is harmless */
+    .taleem-browser-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .taleem-browser-slide {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <!-- Autoplay demo controller -->
+  <script type="module">
+    import { createTaleemBrowser } from "taleem-browser";
+
+    const deck = await fetch("/decks/demo-gold.json").then(r => r.json());
+
+    const browser = createTaleemBrowser({
+      mount: "#app",
+      deck
+    });
+
+    // ---- autoplay logic ----
+    const INTERVAL_SECONDS = 2;
+
+    setInterval(() => {
+      browser.next();
+    }, INTERVAL_SECONDS * 1000);
+  </script>
+
+</body>
+</html>

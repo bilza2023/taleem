@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem – Range / Scrub Demo</title>
+
+  <!-- Core slide styles -->
+  <link rel="stylesheet" href="/src/styles/slides.css" />
+
+  <style>
+    :root {
+      background: var(--backgroundColor);
+      color: var(--primaryColor);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+
+    #app {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* control bar */
+    .controls {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 16px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      z-index: 10;
+    }
+
+    .controls input[type="range"] {
+      width: 100%;
+    }
+
+    .taleem-browser-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .taleem-browser-slide {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <div class="controls">
+    <input
+      id="slider"
+      type="range"
+      min="0"
+      max="0"
+      step="1"
+      value="0"
+    />
+  </div>
+
+  <script type="module">
+    import { createTaleemBrowser } from "taleem-browser";
+
+    const deck = await fetch("/decks/demo-gold.json").then(r => r.json());
+
+    const browser = createTaleemBrowser({
+      mount: "#app",
+      deck
+    });
+
+    const slider = document.getElementById("slider");
+
+    // total slides
+    const totalSlides = deck.deck.length;
+    slider.max = totalSlides - 1;
+
+    let currentIndex = 0;
+
+    // --- HARD SET navigation (deterministic) ---
+    function goTo(index) {
+      if (index === currentIndex) return;
+
+      while (currentIndex < index) {
+        browser.next();
+        currentIndex++;
+      }
+
+      while (currentIndex > index) {
+        browser.prev();
+        currentIndex--;
+      }
+    }
+
+    slider.addEventListener("input", (e) => {
+      const target = Number(e.target.value);
+      goTo(target);
+    });
+  </script>
+
+</body>
+</html>

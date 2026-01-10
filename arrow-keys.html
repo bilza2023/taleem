@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem – Slides Demo</title>
+
+  <!-- Core slide styles -->
+  <link rel="stylesheet" href="/src/styles/slides.css" />
+
+  <style>
+    :root {
+      background: var(--backgroundColor);
+      color: var(--primaryColor);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ===============================
+       App Mount
+       =============================== */
+    #app {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* These are injected by taleem-browser,
+       but keeping styles here is harmless */
+    .taleem-browser-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .taleem-browser-slide {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <!-- Demo controller (uses taleem-browser) -->
+  <script type="module" src="/src/app/demo-click.js"></script>
+</body>
+</html>
