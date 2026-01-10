@@ -28,6 +28,9 @@ function renderSlide() {
 async function init() {
   const deck = await loadDeck("/decks/demo-gold.json");
 
+  // apply theme AFTER deck is loaded
+  applyTheme(deck.theme || "light");
+
   // build static DOM structure ONCE
   root.innerHTML = `
     <div id="deck-bg"></div>
@@ -37,14 +40,10 @@ async function init() {
   bgEl = document.getElementById("deck-bg");
   slideEl = document.getElementById("deck-slide");
 
-  // interpret ONCE
   manager = slideBuilder(deck);
   totalSlides = deck.deck.length;
 
-  // paint background ONCE
   renderBackground(deck.background);
-
-  // render first slide
   renderSlide();
 
   document.addEventListener("keydown", (e) => {
@@ -52,7 +51,6 @@ async function init() {
       currentIndex++;
       renderSlide();
     }
-
     if (e.key === "ArrowLeft" && currentIndex > 0) {
       currentIndex--;
       renderSlide();
@@ -60,7 +58,30 @@ async function init() {
   });
 }
 
+/* ✅ ONLY ONE init() CALL */
 init().catch((err) => {
   console.error(err);
   root.innerHTML = `<pre style="color:red">${err.message}</pre>`;
 });
+
+function applyTheme(themeName) {
+  // temporary hardcoded theme registry
+  const themes = {
+    dark: {
+      backgroundColor: "#0e0f14",
+      primaryColor: "#eaeaf0"
+    },
+    light: {
+      backgroundColor: "#ffffff",
+      primaryColor: "#111111"
+    }
+  };
+
+  const theme = themes[themeName];
+  if (!theme) return;
+
+  const rootStyle = document.documentElement.style;
+
+  rootStyle.setProperty("--backgroundColor", theme.backgroundColor);
+  rootStyle.setProperty("--primaryColor", theme.primaryColor);
+}

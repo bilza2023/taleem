@@ -3,6 +3,7 @@
   "name": "demo_gold_core_slides",
   "description": "Gold-standard core slides (1–4) for styling",
   "status": "draft",
+  "theme": "light",
 "background": {
   "backgroundColor": "#081b7a",
 "backgroundImage": null,
@@ -49,6 +50,109 @@
         { "name": "bullet", "content": "Calm spacing and readable text", "showAt": 30 },
         { "name": "bullet", "content": "No animation assumptions", "showAt": 32 }
       ]
-    }
+    },
+    {
+      "type": "imageSlide",
+      "start": 44,
+      "end": 58,
+      "data": [
+        {
+          "name": "image",
+          "content": "/public/media/images/taleem.webp",
+          "showAt": 44
+        }
+      ]
+    },
+    {
+      "type": "imageWithTitle",
+      "end": 72,
+      "data": [
+        {
+          "name": "image",
+          "content": "/public/media/images/box.webp"
+        },
+        {
+          "name": "title",
+          "content": "Gold in the Global Economy"
+        }
+      ]
+    },
+    {
+      "type": "imageWithCaption",
+      "end": 86,
+      "data": [
+        {
+          "name": "image",
+          "content": "/public/media/images/box.webp"
+        },
+        {
+          "name": "caption",
+          "content": "Visual context supports understanding, not distraction."
+        }
+      ]
+    },
+    {
+      "type": "twoColumnText",
+      "end": 100,
+      "data": [
+        { "name": "title", "content": "Why Structure Matters" },
+        { "name": "left", "content": "Clear layout reduces cognitive load and guides attention." },
+        { "name": "right", "content": "Consistent patterns help learners focus on ideas, not formatting." }
+      ]
+    },
+      {
+        "type": "imageRightBulletsLeft",
+        "end": 118,
+        "data": [
+          { "name": "image", "content": "/public/media/images/taleem.webp" },
+          { "name": "bullet", "content": "Visual placed on the right" },
+          { "name": "bullet", "content": "Text remains primary" }
+        ]
+      },
+      {
+        "type": "imageLeftBulletsRight",
+        "end": 136,
+        "data": [
+          { "name": "image", "content": "/public/media/images/box.webp" },
+          { "name": "bullet", "content": "Classic teaching layout" },
+          { "name": "bullet", "content": "Image supports explanation" }
+        ]
+      },
+      {
+        "type": "quoteSlide",
+        "end": 150,
+        "data": [
+          {
+            "name": "quote",
+            "content": "Clarity beats decoration every time."
+          },
+          {
+            "name": "author",
+            "content": "— Teaching Principle"
+          }
+        ]
+      },
+      
+      {
+        "type": "bigNumber",
+        "end": 162,
+        "data": [
+          { "name": "number", "content": "3" },
+          { "name": "label", "content": "Core Ideas" }
+        ]
+      },
+      {
+        "type": "contactSlide",
+        "end": 178,
+        "data": [
+          { "name": "headline", "content": "Contact" },
+          { "name": "email", "content": "info@taleem.help" },
+          { "name": "phone", "content": "+92 300 0000000" }
+        ]
+      }    
+    
+    
+    
+    
   ]
 }
