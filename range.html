@@ -79,7 +79,7 @@
     "https://unpkg.com/taleem-browser@0.1.3/dist/taleem-browser.esm.js";
 
 
-    const deck = await fetch("/decks/demo-gold.json").then(r => r.json());
+    const deck = await fetch("./decks/demo-gold.json").then(r => r.json());
 
     const browser = createTaleemBrowser({
       mount: "#app",
