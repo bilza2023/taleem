@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>Taleem – Range / Scrub Demo</title>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/taleem-browser@0.1.3/dist/taleem.css"
+/>
 
   <!-- Core slide styles -->
-  <link rel="stylesheet" href="/src/styles/slides.css" />
+  <!-- <link rel="stylesheet" href="/src/styles/slides.css" /> -->
 
   <style>
     :root {
@@ -70,7 +74,10 @@
   </div>
 
   <script type="module">
-    import { createTaleemBrowser } from "taleem-browser";
+   
+    import { createTaleemBrowser } from 
+    "https://unpkg.com/taleem-browser@0.1.3/dist/taleem-browser.esm.js";
+
 
     const deck = await fetch("/decks/demo-gold.json").then(r => r.json());
 

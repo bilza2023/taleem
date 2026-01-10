@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taleem – Slides Demo</title>
+  <title>Taleem – Arrow Keys Demo</title>
 
-  <!-- Core slide styles -->
-  <link rel="stylesheet" href="/src/styles/slides.css" />
+  <!-- Taleem core styles (from npm CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/taleem-browser@0.1.3/dist/taleem.css"
+  />
 
   <style>
     :root {
@@ -18,17 +21,13 @@
       font-family: system-ui, sans-serif;
     }
 
-    /* ===============================
-       App Mount
-       =============================== */
     #app {
       position: relative;
       min-height: 100vh;
       overflow: hidden;
     }
 
-    /* These are injected by taleem-browser,
-       but keeping styles here is harmless */
+    /* injected by taleem-browser */
     .taleem-browser-bg {
       position: absolute;
       inset: 0;
@@ -47,7 +46,25 @@
 
   <div id="app"></div>
 
-  <!-- Demo controller (uses taleem-browser) -->
-  <script type="module" src="/src/app/demo-click.js"></script>
+  <script type="module">
+    import { createTaleemBrowser } from
+      "https://unpkg.com/taleem-browser@0.1.3/dist/taleem-browser.esm.js";
+
+    // load deck (relative path for GitHub Pages)
+    const deck = await fetch("./decks/demo-gold.json")
+      .then(r => r.json());
+
+    const browser = createTaleemBrowser({
+      mount: "#app",
+      deck
+    });
+
+    // arrow key navigation
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") browser.next();
+      if (e.key === "ArrowLeft") browser.prev();
+    });
+  </script>
+
 </body>
 </html>
