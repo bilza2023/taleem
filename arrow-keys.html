@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Taleem – Arrow Keys Demo</title>
 
-  <!-- Taleem core styles (from npm CDN) -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/taleem-browser@0.1.3/dist/taleem.css"
@@ -27,7 +26,6 @@
       overflow: hidden;
     }
 
-    /* injected by taleem-browser */
     .taleem-browser-bg {
       position: absolute;
       inset: 0;
@@ -50,17 +48,34 @@
     import { createTaleemBrowser } from
       "https://unpkg.com/taleem-browser@0.1.3/dist/taleem-browser.esm.js";
 
-    // load deck (relative path for GitHub Pages)
-    const deck = await fetch("./decks/demo-gold.json")
+    const BASE = location.pathname.replace(/\/[^/]*$/, '');
+
+    const deck = await fetch(`${BASE}/decks/demo-gold.json`)
       .then(r => r.json());
+
+    function fixImagePaths(deck) {
+      deck.deck.forEach(slide => {
+        slide.data?.forEach(item => {
+          if (typeof item.content === "string" && item.content.endsWith(".webp")) {
+            item.content = `${BASE}/public/media/images/${item.content}`;
+          }
+        });
+      });
+
+      if (deck.background?.backgroundImage) {
+        deck.background.backgroundImage =
+          `${BASE}/public/media/images/${deck.background.backgroundImage}`;
+      }
+    }
+
+    fixImagePaths(deck);
 
     const browser = createTaleemBrowser({
       mount: "#app",
       deck
     });
 
-    // arrow key navigation
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", e => {
       if (e.key === "ArrowRight") browser.next();
       if (e.key === "ArrowLeft") browser.prev();
     });

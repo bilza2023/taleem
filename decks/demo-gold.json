@@ -1,22 +1,39 @@
 {
   "version": "deck-v1",
   "name": "demo_gold_core_slides",
-  "description": "Gold-standard core slides (1–4) for styling",
+  "description": "Gold-standard core slides for Taleem presentation and styling reference",
   "status": "draft",
   "theme": "light",
-"background": {
-  "backgroundColor": "#081b7a",
-"backgroundImage": null,
-  "backgroundImageOpacity": 0.5
-},
-
+  "background": {
+    "backgroundColor": "#081b7a",
+    "backgroundImage": null,
+    "backgroundImageOpacity": 0.5
+  },
   "deck": [
+    {
+      "type": "imageWithTitle",
+      "end": 72,
+      "data": [
+        {
+          "name": "image",
+          "content": "box.webp"
+        },
+        {
+          "name": "title",
+          "content": "Taleem — Structured Learning Slides"
+        }
+      ]
+    },
     {
       "type": "titleSlide",
       "start": 0,
       "end": 6,
       "data": [
-        { "name": "title", "content": "Taleem Slides – Core", "showAt": 0 }
+        {
+          "name": "title",
+          "content": "Taleem: JSON → Teaching Slides",
+          "showAt": 0
+        }
       ]
     },
     {
@@ -24,8 +41,16 @@
       "start": 6,
       "end": 14,
       "data": [
-        { "name": "title", "content": "Clean Educational Slides", "showAt": 6 },
-        { "name": "subtitle", "content": "Gold standard for layout and style", "showAt": 7 }
+        {
+          "name": "title",
+          "content": "A Clean Presentation System",
+          "showAt": 6
+        },
+        {
+          "name": "subtitle",
+          "content": "Designed for education, clarity, and consistency",
+          "showAt": 7
+        }
       ]
     },
     {
@@ -33,10 +58,14 @@
       "start": 14,
       "end": 28,
       "data": [
-        { "name": "title", "content": "What This Is", "showAt": 14 },
+        {
+          "name": "title",
+          "content": "What Taleem Provides",
+          "showAt": 14
+        },
         {
           "name": "para",
-          "content": "This slide defines the baseline visual language. If this looks right, everything else will follow.",
+          "content": "Taleem converts structured JSON into calm, readable teaching slides — removing design friction from educators.",
           "showAt": 15
         }
       ]
@@ -46,9 +75,21 @@
       "start": 28,
       "end": 44,
       "data": [
-        { "name": "bullet", "content": "One clear idea per slide", "showAt": 28 },
-        { "name": "bullet", "content": "Calm spacing and readable text", "showAt": 30 },
-        { "name": "bullet", "content": "No animation assumptions", "showAt": 32 }
+        {
+          "name": "bullet",
+          "content": "One clear teaching idea per slide",
+          "showAt": 28
+        },
+        {
+          "name": "bullet",
+          "content": "Consistent spacing, typography, and rhythm",
+          "showAt": 30
+        },
+        {
+          "name": "bullet",
+          "content": "Content-first, not animation-first",
+          "showAt": 32
+        }
       ]
     },
     {
@@ -64,20 +105,6 @@
       ]
     },
     {
-      "type": "imageWithTitle",
-      "end": 72,
-      "data": [
-        {
-          "name": "image",
-          "content": "box.webp"
-        },
-        {
-          "name": "title",
-          "content": "Gold in the Global Economy"
-        }
-      ]
-    },
-    {
       "type": "imageWithCaption",
       "end": 86,
       "data": [
@@ -87,7 +114,7 @@
         },
         {
           "name": "caption",
-          "content": "Visual context supports understanding, not distraction."
+          "content": "Visuals support explanation — they never replace it."
         }
       ]
     },
@@ -95,64 +122,101 @@
       "type": "twoColumnText",
       "end": 100,
       "data": [
-        { "name": "title", "content": "Why Structure Matters" },
-        { "name": "left", "content": "Clear layout reduces cognitive load and guides attention." },
-        { "name": "right", "content": "Consistent patterns help learners focus on ideas, not formatting." }
+        {
+          "name": "title",
+          "content": "Why Structure Matters"
+        },
+        {
+          "name": "left",
+          "content": "Structured layouts reduce cognitive load and guide the learner’s attention naturally."
+        },
+        {
+          "name": "right",
+          "content": "When structure is predictable, students focus on ideas instead of slide design."
+        }
       ]
     },
-      {
-        "type": "imageRightBulletsLeft",
-        "end": 118,
-        "data": [
-          { "name": "image", "content": "taleem.webp" },
-          { "name": "bullet", "content": "Visual placed on the right" },
-          { "name": "bullet", "content": "Text remains primary" }
-        ]
-      },
-      {
-        "type": "imageLeftBulletsRight",
-        "end": 136,
-        "data": [
-          { "name": "image", "content": "box.webp" },
-          { "name": "bullet", "content": "Classic teaching layout" },
-          { "name": "bullet", "content": "Image supports explanation" }
-        ]
-      },
-      {
-        "type": "quoteSlide",
-        "end": 150,
-        "data": [
-          {
-            "name": "quote",
-            "content": "Clarity beats decoration every time."
-          },
-          {
-            "name": "author",
-            "content": "— Teaching Principle"
-          }
-        ]
-      },
-      
-      {
-        "type": "bigNumber",
-        "end": 162,
-        "data": [
-          { "name": "number", "content": "3" },
-          { "name": "label", "content": "Core Ideas" }
-        ]
-      },
-      {
-        "type": "contactSlide",
-        "end": 178,
-        "data": [
-          { "name": "headline", "content": "Contact" },
-          { "name": "email", "content": "info@taleem.help" },
-          { "name": "phone", "content": "+92 300 0000000" }
-        ]
-      }    
-    
-    
-    
-    
+    {
+      "type": "imageRightBulletsLeft",
+      "end": 118,
+      "data": [
+        {
+          "name": "image",
+          "content": "taleem.webp"
+        },
+        {
+          "name": "bullet",
+          "content": "Text remains the primary teaching medium"
+        },
+        {
+          "name": "bullet",
+          "content": "Images reinforce, not distract"
+        }
+      ]
+    },
+    {
+      "type": "imageLeftBulletsRight",
+      "end": 136,
+      "data": [
+        {
+          "name": "image",
+          "content": "box.webp"
+        },
+        {
+          "name": "bullet",
+          "content": "Familiar classroom-style layout"
+        },
+        {
+          "name": "bullet",
+          "content": "Easy for teachers to explain and narrate"
+        }
+      ]
+    },
+    {
+      "type": "quoteSlide",
+      "end": 150,
+      "data": [
+        {
+          "name": "quote",
+          "content": "Clarity beats decoration every time."
+        },
+        {
+          "name": "author",
+          "content": "— Taleem Design Principle"
+        }
+      ]
+    },
+    {
+      "type": "bigNumber",
+      "end": 162,
+      "data": [
+        {
+          "name": "number",
+          "content": "3"
+        },
+        {
+          "name": "label",
+          "content": "Core Design Goals"
+        }
+      ]
+    },
+    {
+      "type": "contactSlide",
+      "end": 178,
+      "data": [
+        {
+          "name": "headline",
+          "content": "Taleem Project"
+        },
+        {
+          "name": "email",
+          "content": "info@taleem.help"
+        },
+        {
+          "name": "phone",
+          "content": "+92 300 0000000"
+        }
+      ]
+    }
   ]
 }
