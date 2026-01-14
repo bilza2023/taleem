@@ -100,14 +100,25 @@
         { "name": "bullet", "content": "Key idea two", "showAt": 74 },
         { "name": "bullet", "content": "Key idea two", "showAt": 76 }
       ]
-    }
-    
-        
-    
-        
-    
-    
-        
-
+    },
+      {
+        "type": "imageWithTitle",
+        "start": 80,
+        "end": 90,
+        "data": [
+          { "name": "image", "content": "box.webp", "showAt": 80 },
+          { "name": "title", "content": "Image With Title", "showAt": 82 }
+        ]
+      },
+      {
+        "type": "imageWithCaption",
+        "start": 90,
+        "end": 100,
+        "data": [
+          { "name": "image", "content": "box.webp", "showAt": 90 },
+          { "name": "caption", "content": "This is a supporting caption for the image.", "showAt": 92 }
+        ]
+      }
+      
   ]
 }
