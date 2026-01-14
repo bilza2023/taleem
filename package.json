@@ -11,7 +11,8 @@
     },
     "dependencies": {
         "taleem-browser": "^0.2.0",
-        "taleem-player": "^0.2.3",
-        "taleem-slides": "^0.4.0"
+        "taleem-core": "^1.2.1",
+        "taleem-player": "^0.5.0",
+        "taleem-slides": "^0.5.0"
     }
 }

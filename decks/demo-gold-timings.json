@@ -1,230 +1,113 @@
 {
   "version": "deck-v1",
-  "name": "demo_gold_core_slides",
-  "description": "Gold-standard core slides for Taleem presentation and styling reference",
+  "name": "demo_two_types",
   "status": "draft",
-  "theme": "light",
-  "background": {
-    "backgroundColor": "#081b7a",
-    "backgroundImage": null,
-    "backgroundImageOpacity": 0.5
-  },
   "deck": [
-    {
-      "type": "imageWithTitle",
-      "start": 0,
-      "end": 72,
-      "data": [
-        {
-          "name": "image",
-          "content": "box.webp"
-        },
-        {
-          "name": "title",
-          "content": "Taleem — Structured Learning Slides"
-        }
-      ]
-    },
     {
       "type": "titleSlide",
       "start": 0,
-      "end": 6,
+      "end": 5,
       "data": [
         {
           "name": "title",
-          "content": "Taleem: JSON → Teaching Slides",
+          "content": "Title Slide",
           "showAt": 0
         }
       ]
     },
     {
       "type": "titleAndSubtitle",
-      "start": 6,
-      "end": 14,
+      "start": 5,
+      "end": 10,
       "data": [
         {
           "name": "title",
-          "content": "A Clean Presentation System",
-          "showAt": 6
+          "content": "Title + Subtitle",
+          "showAt": 5
         },
         {
           "name": "subtitle",
-          "content": "Designed for education, clarity, and consistency",
-          "showAt": 7
-        }
-      ]
-    },
-    {
-      "type": "titleAndPara",
-      "start": 14,
-      "end": 28,
-      "data": [
-        {
-          "name": "title",
-          "content": "What Taleem Provides",
-          "showAt": 14
-        },
-        {
-          "name": "para",
-          "content": "Taleem converts structured JSON into calm, readable teaching slides — removing design friction from educators.",
-          "showAt": 15
+          "content": "This is the second slide type",
+          "showAt": 6
         }
       ]
     },
     {
       "type": "bulletList",
-      "start": 28,
-      "end": 44,
+      "start": 10,
+      "end": 20,
       "data": [
-        {
-          "name": "bullet",
-          "content": "One clear teaching idea per slide",
-          "showAt": 28
-        },
-        {
-          "name": "bullet",
-          "content": "Consistent spacing, typography, and rhythm",
-          "showAt": 30
-        },
-        {
-          "name": "bullet",
-          "content": "Content-first, not animation-first",
-          "showAt": 32
-        }
-      ]
-    },
-    {
-      "type": "imageSlide",
-      "start": 44,
-      "end": 58,
-      "data": [
-        {
-          "name": "image",
-          "content": "taleem.webp",
-          "showAt": 44
-        }
-      ]
-    },
-    {
-      "type": "imageWithCaption",
-      "start": 58,
-      "end": 86,
-      "data": [
-        {
-          "name": "image",
-          "content": "box.webp"
-        },
-        {
-          "name": "caption",
-          "content": "Visuals support explanation — they never replace it."
-        }
+        { "name": "bullet", "content": "First bullet point",  "showAt": 10 },
+        { "name": "bullet", "content": "Second bullet point", "showAt": 12 },
+        { "name": "bullet", "content": "Third bullet point",  "showAt": 14 }
       ]
     },
     {
       "type": "twoColumnText",
-      "start": 86,
-      "end": 100,
+      "start": 20,
+      "end": 30,
       "data": [
-        {
-          "name": "title",
-          "content": "Why Structure Matters"
-        },
-        {
-          "name": "left",
-          "content": "Structured layouts reduce cognitive load and guide the learner’s attention naturally."
-        },
-        {
-          "name": "right",
-          "content": "When structure is predictable, students focus on ideas instead of slide design."
-        }
+        { "name": "title", "content": "Two-Column Slide", "showAt": 20 },
+        { "name": "left",  "content": "Left column text goes here.",  "showAt": 21 },
+        { "name": "right", "content": "Right column text goes here.", "showAt": 21 }
       ]
     },
     {
-      "type": "imageRightBulletsLeft",
-      "start": 100,
-      "end": 118,
+      "type": "imageSlide",
+      "start": 30,
+      "end": 40,
       "data": [
-        {
-          "name": "image",
-          "content": "taleem.webp"
-        },
-        {
-          "name": "bullet",
-          "content": "Text remains the primary teaching medium"
-        },
-        {
-          "name": "bullet",
-          "content": "Images reinforce, not distract"
-        }
-      ]
-    },
-    {
-      "type": "imageLeftBulletsRight",
-      "start": 118,
-      "end": 136,
-      "data": [
-        {
-          "name": "image",
-          "content": "box.webp"
-        },
-        {
-          "name": "bullet",
-          "content": "Familiar classroom-style layout"
-        },
-        {
-          "name": "bullet",
-          "content": "Easy for teachers to explain and narrate"
-        }
-      ]
-    },
-    {
-      "type": "quoteSlide",
-      "start": 136,
-      "end": 150,
-      "data": [
-        {
-          "name": "quote",
-          "content": "Clarity beats decoration every time."
-        },
-        {
-          "name": "author",
-          "content": "— Taleem Design Principle"
-        }
+        { "name": "image", "content": "box.webp", "showAt": 30 }
       ]
     },
     {
       "type": "bigNumber",
-      "start": 150,
-      "end": 162,
+      "start": 40,
+      "end": 48,
       "data": [
-        {
-          "name": "number",
-          "content": "3"
-        },
-        {
-          "name": "label",
-          "content": "Core Design Goals"
-        }
+        { "name": "number", "content": "5", "showAt": 40 },
+        { "name": "label",  "content": "Core Slide Types", "showAt": 41 }
       ]
     },
     {
       "type": "contactSlide",
-      "start": 162,
-      "end": 178,
+      "start": 48,
+      "end": 60,
       "data": [
-        {
-          "name": "headline",
-          "content": "Taleem Project"
-        },
-        {
-          "name": "email",
-          "content": "info@taleem.help"
-        },
-        {
-          "name": "phone",
-          "content": "+92 300 0000000"
-        }
+        { "name": "headline", "content": "Taleem Project", "showAt": 48 },
+        { "name": "email",    "content": "info@taleem.help", "showAt": 49 },
+        { "name": "phone",    "content": "+92 300 0000000", "showAt": 50 }
+      ]
+    },
+    {
+      "type": "imageLeftBulletsRight",
+      "start": 60,
+      "end": 70,
+      "data": [
+        { "name": "image",  "content": "box.webp", "showAt": 60 },
+        { "name": "bullet", "content": "First supporting point",  "showAt": 62 },
+        { "name": "bullet", "content": "Second supporting point", "showAt": 64 },
+        { "name": "bullet", "content": "Second supporting point", "showAt": 66 }
+      ]
+    },
+    {
+      "type": "imageRightBulletsLeft",
+      "start": 70,
+      "end": 80,
+      "data": [
+        { "name": "image",  "content": "box.webp", "showAt": 70 },
+        { "name": "bullet", "content": "Key idea one", "showAt": 72 },
+        { "name": "bullet", "content": "Key idea two", "showAt": 74 },
+        { "name": "bullet", "content": "Key idea two", "showAt": 76 }
       ]
     }
+    
+        
+    
+        
+    
+    
+        
+
   ]
 }
