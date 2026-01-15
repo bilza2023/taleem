@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <title>Taleem – Arrow Keys Demo</title>
 
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/taleem-browser@0.1.3/dist/taleem.css"
-  />
+  <!-- use LOCAL taleem.css (authoritative) -->
+  <link rel="stylesheet" href="./taleem.css" />
 
   <style>
     :root {
@@ -46,25 +44,28 @@
 
   <script type="module">
     import { createTaleemBrowser } from
-      "https://unpkg.com/taleem-browser@0.1.3/dist/taleem-browser.esm.js";
+      "https://unpkg.com/taleem-browser@1.0.0-rc.1/dist/taleem-browser.esm.js";
 
     const BASE = location.pathname.replace(/\/[^/]*$/, '');
 
-    const deck = await fetch(`${BASE}/decks/demo-gold.json`)
-      .then(r => r.json());
+    const deck = await fetch(
+      `${BASE}/node_modules/taleem-core/src/samples/goldenDeckV1.json`
+    ).then(r => r.json());
 
     function fixImagePaths(deck) {
+      const IMG_BASE = `${BASE}/public/media/images/`;
+
       deck.deck.forEach(slide => {
         slide.data?.forEach(item => {
-          if (typeof item.content === "string" && item.content.endsWith(".webp")) {
-            item.content = `${BASE}/public/media/images/${item.content}`;
+          if (item.name === "image" && typeof item.content === "string") {
+            item.content = IMG_BASE + item.content.split("/").pop();
           }
         });
       });
 
       if (deck.background?.backgroundImage) {
         deck.background.backgroundImage =
-          `${BASE}/public/media/images/${deck.background.backgroundImage}`;
+          IMG_BASE + deck.background.backgroundImage.split("/").pop();
       }
     }
 
@@ -75,9 +76,21 @@
       deck
     });
 
+    let index = 0;
+    const MAX = deck.deck.length - 1;
+
+    browser.render(index);
+
     document.addEventListener("keydown", e => {
-      if (e.key === "ArrowRight") browser.next();
-      if (e.key === "ArrowLeft") browser.prev();
+      if (e.key === "ArrowRight") {
+        index = Math.min(index + 1, MAX);
+        browser.render(index);
+      }
+
+      if (e.key === "ArrowLeft") {
+        index = Math.max(index - 1, 0);
+        browser.render(index);
+      }
     });
   </script>
 
