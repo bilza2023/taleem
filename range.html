@@ -6,7 +6,7 @@
 
   <link
     rel="stylesheet"
-    href="https://unpkg.com/taleem-browser@0.1.3/dist/taleem.css"
+    href="https://unpkg.com/taleem-browser@1.0.0-rc.1/dist/taleem.css"
   />
 
   <style>
@@ -14,18 +14,15 @@
       background: var(--backgroundColor);
       color: var(--primaryColor);
     }
-
     body {
       margin: 0;
       font-family: system-ui, sans-serif;
     }
-
     #app {
       position: relative;
       min-height: 100vh;
       overflow: hidden;
     }
-
     .controls {
       position: fixed;
       left: 0;
@@ -36,11 +33,9 @@
       backdrop-filter: blur(6px);
       z-index: 10;
     }
-
     .controls input[type="range"] {
       width: 100%;
     }
-
     .taleem-browser-bg {
       position: absolute;
       inset: 0;
@@ -48,7 +43,6 @@
       background-size: cover;
       background-position: center;
     }
-
     .taleem-browser-slide {
       position: relative;
       z-index: 1;
@@ -60,40 +54,36 @@
   <div id="app"></div>
 
   <div class="controls">
-    <input
-      id="slider"
-      type="range"
-      min="0"
-      max="0"
-      step="1"
-      value="0"
-    />
+    <input id="slider" type="range" min="0" step="1" value="0" />
   </div>
 
   <script type="module">
     import { createTaleemBrowser } from
-      "https://unpkg.com/taleem-browser@0.1.3/dist/taleem-browser.esm.js";
+      "https://unpkg.com/taleem-browser@1.0.0-rc.1/dist/taleem-browser.esm.js";
 
-    // 🔑 Base path resolver (GitHub Pages safe)
     const BASE = location.pathname.replace(/\/[^/]*$/, '');
 
-    // ✅ Load deck using RELATIVE path
-    const deck = await fetch(`${BASE}/decks/demo-gold.json`)
-      .then(r => r.json());
+    const deck = await fetch(
+      `${BASE}/node_modules/taleem-core/src/samples/goldenDeckV1.json`
+    ).then(r => r.json());
 
-    // ✅ Fix ALL image paths inside the deck
+    // -----------------------------------------------
+    // FIX IMAGE PATHS (single responsibility)
+    // -----------------------------------------------
     function fixImagePaths(deck) {
+      const IMG_BASE = `${BASE}/public/media/images/`;
+
       deck.deck.forEach(slide => {
         slide.data?.forEach(item => {
-          if (typeof item.content === "string" && item.content.endsWith(".webp")) {
-            item.content = `${BASE}/public/media/images/${item.content.split('/').pop()}`;
+          if (item.name === "image" && typeof item.content === "string") {
+            item.content = IMG_BASE + item.content.split("/").pop();
           }
         });
       });
 
       if (deck.background?.backgroundImage) {
         deck.background.backgroundImage =
-          `${BASE}/public/media/images/${deck.background.backgroundImage.split('/').pop()}`;
+          IMG_BASE + deck.background.backgroundImage.split("/").pop();
       }
     }
 
@@ -105,27 +95,14 @@
     });
 
     const slider = document.getElementById("slider");
-
     slider.max = deck.deck.length - 1;
 
-    let currentIndex = 0;
-
-    function goTo(index) {
-      if (index === currentIndex) return;
-
-      while (currentIndex < index) {
-        browser.next();
-        currentIndex++;
-      }
-
-      while (currentIndex > index) {
-        browser.prev();
-        currentIndex--;
-      }
-    }
+    let index = 0;
+    browser.render(index);
 
     slider.addEventListener("input", e => {
-      goTo(Number(e.target.value));
+      index = Number(e.target.value);
+      browser.render(index);
     });
   </script>
 
