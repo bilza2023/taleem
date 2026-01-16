@@ -1,0 +1,59 @@
+/* =========================
+   Global demo base styles
+   ========================= */
+
+   :root {
+    background: var(--backgroundColor);
+    color: var(--primaryColor);
+  }
+  
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #111;
+    color: #fff;
+  }
+  
+  #app {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* =========================
+     Browser / Player layers
+     ========================= */
+  
+  .taleem-browser-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .taleem-browser-slide {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* =========================
+     Player-only UI
+     ========================= */
+  
+  #timebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    z-index: 10;
+  }
+  

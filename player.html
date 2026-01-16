@@ -2,41 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taleem Player – Demo</title>
+  <title>Taleem Player – Scalar / Time Demo</title>
 
   <!-- Local authoritative Taleem CSS -->
-  <link rel="stylesheet" href="./src/taleem.css" />
-
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #111;
-      color: #fff;
-    }
-
-    #app {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    #timebar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 32px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      z-index: 10;
-    }
-  </style>
+  <link rel="stylesheet" href="./styles/taleem.css" />
+  <link rel="stylesheet" href="./styles/demo.base.css" />
 </head>
 <body>
 
@@ -46,17 +16,21 @@
   <script type="module">
     import { createTaleemPlayer } from
       "https://unpkg.com/taleem-player@0.6.0-rc.1/dist/taleem-player.esm.js";
-  
+
     import { goldenDeckV1 } from
       "https://unpkg.com/taleem-core@1.4.0-rc.1/dist/taleem-core.esm.js";
-      import { resolveDeckImages } from "./src/resolveDeckImages.js";
+
+    import { resolveDeckImages } from "./src/resolveDeckImages.js";
+
     // ----------------------------------
     // clone canonical golden deck
     // ----------------------------------
     const deck = structuredClone(goldenDeckV1);
     resolveDeckImages(deck, "./public/media/images/");
 
+    // ----------------------------------
     // create player
+    // ----------------------------------
     const player = createTaleemPlayer({
       mount: "#app",
       deck

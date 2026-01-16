@@ -2,41 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taleem – Arrow Keys Demo</title>
+  <title>Taleem Browser – Arrow Keys Demo</title>
 
-  <!-- use LOCAL taleem.css (authoritative) -->
-  <link rel="stylesheet" href="./taleem.css" />
-
-  <style>
-    :root {
-      background: var(--backgroundColor);
-      color: var(--primaryColor);
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-    }
-
-    #app {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-
-    .taleem-browser-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .taleem-browser-slide {
-      position: relative;
-      z-index: 1;
-    }
-  </style>
+  <!-- Shared Taleem demo styles -->
+  <link rel="stylesheet" href="./styles/taleem.css" />
+  <link rel="stylesheet" href="./styles/demo.base.css" />
 </head>
 <body>
 
@@ -46,31 +16,20 @@
     import { createTaleemBrowser } from
       "https://unpkg.com/taleem-browser@1.0.0-rc.1/dist/taleem-browser.esm.js";
 
-    const BASE = location.pathname.replace(/\/[^/]*$/, '');
+    import { goldenDeckV1 } from
+      "https://unpkg.com/taleem-core@1.4.0-rc.1/dist/taleem-core.esm.js";
 
-    const deck = await fetch(
-      `${BASE}/node_modules/taleem-core/src/samples/goldenDeckV1.json`
-    ).then(r => r.json());
+    import { resolveDeckImages } from "./src/resolveDeckImages.js";
 
-    function fixImagePaths(deck) {
-      const IMG_BASE = `${BASE}/public/media/images/`;
+    // ----------------------------------
+    // clone canonical golden deck
+    // ----------------------------------
+    const deck = structuredClone(goldenDeckV1);
+    resolveDeckImages(deck, "./public/media/images/");
 
-      deck.deck.forEach(slide => {
-        slide.data?.forEach(item => {
-          if (item.name === "image" && typeof item.content === "string") {
-            item.content = IMG_BASE + item.content.split("/").pop();
-          }
-        });
-      });
-
-      if (deck.background?.backgroundImage) {
-        deck.background.backgroundImage =
-          IMG_BASE + deck.background.backgroundImage.split("/").pop();
-      }
-    }
-
-    fixImagePaths(deck);
-
+    // ----------------------------------
+    // create browser
+    // ----------------------------------
     const browser = createTaleemBrowser({
       mount: "#app",
       deck
@@ -81,6 +40,9 @@
 
     browser.render(index);
 
+    // ----------------------------------
+    // arrow key controls (index-based)
+    // ----------------------------------
     document.addEventListener("keydown", e => {
       if (e.key === "ArrowRight") {
         index = Math.min(index + 1, MAX);
