@@ -3,17 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <title>Taleem Player – Demo</title>
-  
-  <link
-  rel="stylesheet"
-  href="https://unpkg.com/taleem-browser@0.2.0/dist/taleem.css"
-/>
 
-  <!-- Taleem Slides CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/taleem-slides@0.5.0/dist/taleem.css"
-  />
+  <!-- Local authoritative Taleem CSS -->
+  <link rel="stylesheet" href="./taleem.css" />
 
   <style>
     body {
@@ -24,12 +16,12 @@
     }
 
     #app {
+      position: relative;
       width: 100vw;
       height: 100vh;
       overflow: hidden;
     }
 
-    /* --- time display --- */
     #timebar {
       position: fixed;
       bottom: 0;
@@ -42,8 +34,7 @@
       align-items: center;
       justify-content: center;
       font-size: 14px;
-      letter-spacing: 0.5px;
-      z-index: 1000;
+      z-index: 10;
     }
   </style>
 </head>
@@ -53,47 +44,51 @@
   <div id="timebar">t = 0s</div>
 
   <script type="module">
-    import { createTaleemPlayer } from
-      "https://unpkg.com/taleem-player@0.5.0/dist/taleem-player.esm.js";
+    import { createTaleemPlayer } from "taleem-player";
+    import { goldenDeckV1 } from "taleem-core";
 
-    // base path (vite + local safe)
+    // ----------------------------------
+    // clone canonical golden deck
+    // ----------------------------------
+    const deck = structuredClone(goldenDeckV1);
+
+    // ----------------------------------
+    // base path (same as browser demos)
+    // ----------------------------------
     const BASE = location.pathname.replace(/\/[^/]*$/, "");
+    const IMG_BASE = `${BASE}/public/media/images/`;
 
-    // load deck
-    const deck = await fetch(`${BASE}/decks/demo-gold-timings.json`)
-      .then(r => r.json());
-
-    // fix image paths
+    // ----------------------------------
+    // FIX IMAGE PATHS (canonical rule)
+    // ----------------------------------
     function fixImagePaths(deck) {
       deck.deck.forEach(slide => {
         slide.data?.forEach(item => {
-          if (
-            typeof item.content === "string" &&
-            item.content.endsWith(".webp")
-          ) {
-            item.content =
-              `${BASE}/public/media/images/${item.content.split("/").pop()}`;
+          if (item.name === "image" && typeof item.content === "string") {
+            item.content = IMG_BASE + item.content.split("/").pop();
           }
         });
       });
 
       if (deck.background?.backgroundImage) {
         deck.background.backgroundImage =
-          `${BASE}/public/media/images/${deck.background.backgroundImage.split("/").pop()}`;
+          IMG_BASE + deck.background.backgroundImage.split("/").pop();
       }
     }
 
     fixImagePaths(deck);
 
+    // ----------------------------------
     // create player
+    // ----------------------------------
     const player = createTaleemPlayer({
       mount: "#app",
       deck
     });
 
-    // -----------------------------
-    // app-owned ticker
-    // -----------------------------
+    // ----------------------------------
+    // app-owned time (SECONDS)
+    // ----------------------------------
     let t = 0;
     const STEP = 1;
     const timebar = document.getElementById("timebar");
@@ -107,9 +102,10 @@
     // initial render
     tick();
 
+    // external clock
     setInterval(tick, STEP * 1000);
 
-    // expose for manual testing
+    // debug
     window.player = player;
   </script>
 
