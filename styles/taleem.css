@@ -2,6 +2,9 @@
     --backgroundColor: #081b7a;
     --primaryColor: #ccd0e4;
   }
+  body {
+    background-color: var(--backgroundColor);
+  }
   
   /* ===============================
      Base Slide Reset + Grammar
