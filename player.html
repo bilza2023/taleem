@@ -5,7 +5,7 @@
   <title>Taleem Player – Demo</title>
 
   <!-- Local authoritative Taleem CSS -->
-  <link rel="stylesheet" href="./taleem.css" />
+  <link rel="stylesheet" href="./src/taleem.css" />
 
   <style>
     body {
@@ -44,43 +44,19 @@
   <div id="timebar">t = 0s</div>
 
   <script type="module">
-    import { createTaleemPlayer } from "taleem-player";
-    import { goldenDeckV1 } from "taleem-core";
-
+    import { createTaleemPlayer } from
+      "https://unpkg.com/taleem-player@0.6.0-rc.1/dist/taleem-player.esm.js";
+  
+    import { goldenDeckV1 } from
+      "https://unpkg.com/taleem-core@1.4.0-rc.1/dist/taleem-core.esm.js";
+      import { resolveDeckImages } from "./src/resolveDeckImages.js";
     // ----------------------------------
     // clone canonical golden deck
     // ----------------------------------
     const deck = structuredClone(goldenDeckV1);
+    resolveDeckImages(deck, "./public/media/images/");
 
-    // ----------------------------------
-    // base path (same as browser demos)
-    // ----------------------------------
-    const BASE = location.pathname.replace(/\/[^/]*$/, "");
-    const IMG_BASE = `${BASE}/public/media/images/`;
-
-    // ----------------------------------
-    // FIX IMAGE PATHS (canonical rule)
-    // ----------------------------------
-    function fixImagePaths(deck) {
-      deck.deck.forEach(slide => {
-        slide.data?.forEach(item => {
-          if (item.name === "image" && typeof item.content === "string") {
-            item.content = IMG_BASE + item.content.split("/").pop();
-          }
-        });
-      });
-
-      if (deck.background?.backgroundImage) {
-        deck.background.backgroundImage =
-          IMG_BASE + deck.background.backgroundImage.split("/").pop();
-      }
-    }
-
-    fixImagePaths(deck);
-
-    // ----------------------------------
     // create player
-    // ----------------------------------
     const player = createTaleemPlayer({
       mount: "#app",
       deck
