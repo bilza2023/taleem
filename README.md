@@ -1,5 +1,6 @@
 
 # Taleem Browser — Demo Project
+## Work in progess please expect things broken ---17-Jan-2026
 
 This repository is a **pure demo & showcase project** for the Taleem presentation system.
 

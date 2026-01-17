@@ -1,0 +1,200 @@
+{
+    "version": "deck-v1",
+    "name": "Study Tips for Grade 9–10 Students",
+    "background": {
+      "backgroundColor": "#0f172a",
+      "backgroundImage": "./public/media/images/success.webp",
+      "backgroundImageOpacity": 0.25
+    },
+    "deck": [
+      {
+        "type": "titleSlide",
+        "start": 0,
+        "end": 5,
+        "data": [
+          {
+            "name": "title",
+            "content": "Study Tips for Grade 9–10",
+            "showAt": 0
+          }
+        ]
+      },
+  
+      {
+        "type": "titleAndSubtitle",
+        "start": 5,
+        "end": 10,
+        "data": [
+          {
+            "name": "title",
+            "content": "Why Study Smart?",
+            "showAt": 5
+          },
+          {
+            "name": "subtitle",
+            "content": "Hard work + right method = success",
+            "showAt": 6
+          }
+        ]
+      },
+  
+      {
+        "type": "bulletList",
+        "start": 10,
+        "end": 15,
+        "data": [
+          { "name": "bullet", "content": "Classes become tougher in 9–10", "showAt": 10 },
+          { "name": "bullet", "content": "Concepts matter more than memorizing", "showAt": 11 },
+          { "name": "bullet", "content": "Good habits reduce exam stress", "showAt": 12 }
+        ]
+      },
+  
+      {
+        "type": "twoColumnText",
+        "start": 15,
+        "end": 20,
+        "data": [
+          {
+            "name": "left",
+            "content": "❌ Bad Habits\n• Late-night cramming\n• Skipping basics\n• No revision",
+            "showAt": 15
+          },
+          {
+            "name": "right",
+            "content": "✅ Good Habits\n• Daily study\n• Clear concepts\n• Regular revision",
+            "showAt": 17
+          }
+        ]
+      },
+  
+      {
+        "type": "imageWithTitle",
+        "start": 20,
+        "end": 25,
+        "data": [
+          {
+            "name": "title",
+            "content": "Make a Simple Study Plan",
+            "showAt": 20
+          },
+          {
+            "name": "image",
+            "content": "box.webp",
+            "showAt": 21
+          }
+        ]
+      },
+  
+      {
+        "type": "bulletList",
+        "start": 25,
+        "end": 30,
+        "data": [
+          { "name": "bullet", "content": "Fix study time daily", "showAt": 25 },
+          { "name": "bullet", "content": "Short sessions (30–40 min)", "showAt": 26 },
+          { "name": "bullet", "content": "Break between subjects", "showAt": 27 }
+        ]
+      },
+  
+      {
+        "type": "imageLeftBulletsRight",
+        "start": 30,
+        "end": 35,
+        "data": [
+          {
+            "name": "image",
+            "content": "box.webp",
+            "showAt": 30
+          },
+          {
+            "name": "bullet",
+            "content": "Understand before memorizing",
+            "showAt": 31
+          },
+          {
+            "name": "bullet",
+            "content": "Ask \"why\" and \"how\"",
+            "showAt": 32
+          }
+        ]
+      },
+  
+      {
+        "type": "imageRightBulletsLeft",
+        "start": 35,
+        "end": 40,
+        "data": [
+          {
+            "name": "image",
+            "content": "physics_bg.webp",
+            "showAt": 35
+          },
+          {
+            "name": "bullet",
+            "content": "Practice numericals daily",
+            "showAt": 36
+          },
+          {
+            "name": "bullet",
+            "content": "Write steps clearly",
+            "showAt": 37
+          }
+        ]
+      },
+  
+      {
+        "type": "statistic",
+        "start": 40,
+        "end": 45,
+        "data": [
+          {
+            "name": "number",
+            "content": "80%",
+            "showAt": 40
+          },
+          {
+            "name": "label",
+            "content": "Success comes from consistency",
+            "showAt": 41
+          }
+        ]
+      },
+  
+      {
+        "type": "quoteSlide",
+        "start": 45,
+        "end": 50,
+        "data": [
+          {
+            "name": "quote",
+            "content": "Small daily progress leads to big results.",
+            "showAt": 45
+          },
+          {
+            "name": "author",
+            "content": "— Study Rule",
+            "showAt": 47
+          }
+        ]
+      },
+  
+      {
+        "type": "titleAndPara",
+        "start": 55,
+        "end": 60,
+        "data": [
+          {
+            "name": "title",
+            "content": "Final Tip",
+            "showAt": 55
+          },
+          {
+            "name": "para",
+            "content": "Believe in yourself and stay disciplined.",
+            "showAt": 56
+          }
+        ]
+      }
+    ]
+  }
+  

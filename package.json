@@ -13,6 +13,6 @@
         "taleem-browser": "^1.0.0-rc.1",
         "taleem-core": "^1.4.0-rc.1",
         "taleem-player": "^0.6.0-rc.1",
-        "taleem-slides": "^0.6.0"
+        "taleem-slides": "^0.6.2-rc.1"
     }
 }
