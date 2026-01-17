@@ -3,7 +3,7 @@
     "name": "Study Tips for Grade 9–10 Students",
     "background": {
       "backgroundColor": "#0f172a",
-      "backgroundImage": "./public/media/images/success.webp",
+      "backgroundImage": "success.webp",
       "backgroundImageOpacity": 0.25
     },
     "deck": [
