@@ -3,17 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Taleem Browser – Range / Scrub Demo</title>
-  <!-- THEME (page-level) -->
+
   
-  <!-- Shared Taleem demo styles -->
-  <link rel="stylesheet" href="https://unpkg.com/taleem-slides@0.6.2-rc.1/dist/taleem.css" />
-<!-- 
+  <link rel="stylesheet" href="https://unpkg.com/taleem-player@latest/dist/css/taleem.css" />
   <link rel="stylesheet"
-  href="./taleem.css" /> -->
-
-<link rel="stylesheet"
-  href="https://unpkg.com/taleem-slides@0.6.2-rc.1/dist/themes/paper.css" />
-
+  href="https://unpkg.com/taleem-player@latest/dist/css/themes/paper.css" />
 
   <style>
     /* Demo-specific UI only */
@@ -42,11 +36,13 @@
   </div>
 
   <script type="module">
-    import { createTaleemBrowser } from
-      "https://unpkg.com/taleem-browser@1.0.0-rc.1/dist/taleem-browser.esm.js";
+     import { createTaleemBrowser } from
+      "https://unpkg.com/taleem-player@latest/dist/taleem-player.esm.js";
 
-    import { goldenDeckV1 } from
-      "https://unpkg.com/taleem-core@1.4.0-rc.1/dist/taleem-core.esm.js";
+    // import { goldenDeckV1 } from "./copy-golden-deck.js"
+    import { goldenDeckV1 } from 
+      "https://unpkg.com/taleem-core@latest/dist/taleem-core.esm.js";
+
 
     import { resolveDeckImages } from "./src/resolveDeckImages.js";
 

@@ -4,20 +4,24 @@
   <meta charset="UTF-8" />
   <title>Taleem Browser – Arrow Keys Demo</title>
 
-  <!-- Shared Taleem demo styles -->
-  <link rel="stylesheet" href="./styles/taleem.css" />
-  <link rel="stylesheet" href="./styles/demo.base.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/taleem-player@latest/dist/css/taleem.css" />
+  <link rel="stylesheet"
+  href="https://unpkg.com/taleem-player@latest/dist/css/themes/paper.css" />
+
+
 </head>
 <body>
 
   <div id="app"></div>
 
   <script type="module">
-    import { createTaleemBrowser } from
-      "https://unpkg.com/taleem-browser@1.0.0-rc.1/dist/taleem-browser.esm.js";
+     import { createTaleemBrowser } from
+      "https://unpkg.com/taleem-player@latest/dist/taleem-player.esm.js";
 
-    import { goldenDeckV1 } from
-      "https://unpkg.com/taleem-core@1.4.0-rc.1/dist/taleem-core.esm.js";
+    // import { goldenDeckV1 } from "./copy-golden-deck.js"
+    import { goldenDeckV1 } from 
+      "https://unpkg.com/taleem-core@latest/dist/taleem-core.esm.js";
 
     import { resolveDeckImages } from "./src/resolveDeckImages.js";
 

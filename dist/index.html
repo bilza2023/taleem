@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem — Demos</title>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #020617, #000);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      padding: 32px;
+    }
+
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 32px;
+    }
+
+    p {
+      margin: 0 0 32px 0;
+      color: var(--muted);
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+    }
+
+    a.demo {
+      text-decoration: none;
+      color: inherit;
+      padding: 16px 18px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #020617, #020617cc);
+      border: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    a.demo:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .icon {
+      font-size: 20px;
+    }
+
+    .label {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Taleem Demos</h1>
+    <p>Minimal demonstrations of Taleem slide playback control.</p>
+
+    <div class="list">
+      <a class="demo" href="./range.html">
+        <span class="icon">🎚️</span>
+        <span class="label">Range / Scrub Demo (Slide Browser by index)</span>
+      </a>
+    
+      <a class="demo" href="./arrow-keys.html">
+        <span class="icon">⌨️</span>
+        <span class="label">Arrow Keys Demo (Slide Browser by index)</span>
+      </a>
+    
+      <a class="demo" href="./autoplay.html">
+        <span class="icon">⏱️</span>
+        <span class="label">Autoplay Demo (Slide Browser by index)</span>
+      </a>
+
+
+      <a class="demo" href="./player.html">
+        <span class="icon">🚀</span>
+        <span class="label">Player (Slide Player by scalar / time)</span>
+      </a>
+
+      <a class="demo" href="./docs/index.html">
+        <span class="icon">📚</span>
+        <span class="label">Docs</span>
+      </a>
+      <a class="demo" href="./open-in-taleem-browser.html">
+        <span class="icon">📚</span>
+        <span class="label">Open in Taleem Browser</span>
+      </a>
+  
+    </div>
+    
+  </div>
+
+</body>
+</html>
