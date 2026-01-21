@@ -12,6 +12,7 @@
     "dependencies": {
         "taleem-core": "^1.4.3",
         "taleem-player": "^0.7.3-rc",
-        "taleem-slides": "^0.6.2-rc.6"
+        "taleem-slides": "^0.6.2-rc.6",
+        "taleem-builder" : "file:../taleem-builder"
     }
 }
