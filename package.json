@@ -1,18 +1,19 @@
 {
     "name": "taleem-demo",
+    "version": "1.0.0",
     "private": true,
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "devDependencies": {
         "vite": "^4.5.14"
     },
     "dependencies": {
-        "taleem-core": "^1.4.3",
-        "taleem-player": "^0.7.3-rc",
-        "taleem-slides": "^0.6.2-rc.6",
-        "taleem-builder" : "file:../taleem-builder"
+        "taleem-core": "^1.0.0",
+        "taleem-player": "^1.0.0",
+        "taleem-slides": "^1.0.0"
     }
 }

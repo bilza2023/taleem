@@ -1,154 +1,135 @@
 
-# Taleem Browser — Demo Project
-## Work in progess please expect things broken ---17-Jan-2026
+# Taleem Demo App
+## Stable integration demo · January 2026
 
-This repository is a **pure demo & showcase project** for the Taleem presentation system.
+This repository is the **official integration demo** for the Taleem presentation ecosystem.
 
-It demonstrates **how Taleem decks are played in the browser**, not how they are authored or built.
+It demonstrates how **Taleem Core–compliant JSON decks** are rendered and played
+in real browsers using the published Taleem libraries.
 
-This distinction is intentional and important.
+Everything here is **real, working, and intentionally simple**.
 
 ---
 
 ## 🎯 Purpose
 
-This project exists to prove that:
+This project exists to validate that:
 
-- Taleem decks are **portable JSON documents**
-- Slide playback is **externally controllable**
-- Navigation logic is **UI-agnostic**
-- No framework (React, Svelte, Vue, etc.) is required
-- A browser can act as a **deterministic slide viewer**
+- Taleem decks are **portable, schema-defined JSON documents**
+- Slides can be rendered deterministically as HTML
+- Playback can be:
+  - index-based (manual navigation)
+  - time-based (player-driven)
+- Rendering and playback are **framework-agnostic**
+- A browser can act as a **complete presentation runtime**
 
-This repository intentionally avoids:
-
-- Deck building
-- Timeline interpretation
-- Authoring tools
-- Editors
-- Backend services
+This repository is about **integration and behavior**, not tooling.
 
 ---
 
 ## 📦 Dependencies
 
-Runtime dependency:
+This demo uses **only released 1.0 packages**:
 
 ```json
-"dependencies": {
-  "taleem-browser": "^0.1.0"
+{
+  "dependencies": {
+    "taleem-core": "^1.0.0",
+    "taleem-slides": "^1.0.0",
+    "taleem-player": "^1.0.0"
+  }
 }
 ````
 
 Notes:
 
-* `taleem-browser` is the **only required dependency**
-* Decks are **prebuilt JSON files**
-* `taleem-slides` is **not** used directly here (by design)
+* `taleem-core` defines the schema and rules
+* `taleem-slides` renders slides to HTML
+* `taleem-player` controls browser and time-based playback
 
-This repo demonstrates **playback only**, not construction.
+No local packages.
+No unpublished APIs.
+This mirrors **real consumer usage**.
 
 ---
 
 ## 🧪 Demo Pages
 
-Each demo page is a **self-contained behavioral experiment**.
+Each demo page is a **small, focused experiment**.
 
 Rule:
 
-> **One HTML file = one playback behavior**
+> **One page = one playback behavior**
 
-### Included demos
+Typical demos include:
 
-**Arrow Keys Demo**
+* Manual slide navigation (index-based)
+* Time-driven playback using `createTaleemPlayer`
+* External UI controls driving the player
+* Visual verification of real Taleem decks
 
-* Discrete slide navigation
-* Keyboard-driven control
-
-**Autoplay Demo**
-
-* Time-based slide advancement
-* External timer driving navigation
-
-**Range / Scrub Demo**
-
-* Continuous external control
-* Slide index mapped to UI state
-
-Each demo answers exactly one question:
-
-> “Can the Taleem browser be controlled this way?”
-
-If the answer is “yes”, the demo is complete.
+If a behavior works here, it is considered **production-valid**.
 
 ---
 
-## 🧠 Design Philosophy
+## 🧠 Design Principles
 
-* Slides are treated as **documents**, not videos
-* Index-based navigation is fundamental
-* Time is **optional metadata**, not a requirement
-* Playback logic must be **explicit and observable**
-* Demos must be:
+* Decks are treated as **documents**, not videos
+* Rendering and playback are **separate concerns**
+* Time metadata (`start`, `end`, `showAt`) is:
 
-  * small
-  * isolated
+  * optional
+  * explicit
+  * never guessed or auto-corrected
+* All behavior must be:
+
+  * observable
   * deterministic
+  * debuggable in plain HTML + JS
 
-This repository acts simultaneously as:
-
-* Documentation
-* Regression suite
-* Teaching reference
-* API usage examples
+This demo intentionally avoids abstraction layers.
 
 ---
 
-## 🚫 What Is Intentionally Missing
+## 🚫 What This Repo Does NOT Do
 
-The following are **explicitly out of scope** for this repo:
+This demo does **not** include:
 
-* Interpreting `start`, `end`, or `showAt`
-* Full presentation timelines
-* Narration or audio sync
-* Animations or transitions
-* Editors or authoring tools
+* Deck authoring or builders
+* Editors or visual tooling
+* Backend services
+* Asset generation pipelines
 
-Those concerns belong to **separate layers** and **future stages**.
+Those concerns live in **separate projects**.
+
+This app is about **playing**, not **making**.
 
 ---
 
 ## 🧊 Project Status
 
-**Feature-complete for its intended scope.**
+**Stable and feature-complete for its intended purpose.**
 
-Future changes should only include:
+Future changes may include:
 
-* New demo pages
-* New playback control experiments
+* Additional demo pages
+* New playback experiments
+* Visual inspection aids
 
-Core behavior is considered **stable**.
-
-This file should be treated as **locked** unless the project scope changes.
+Core integration behavior is considered **locked**.
 
 ---
 
-## 🔗 Important Links
+## 🔗 Related Projects
 
-* **Demo project (this repository)**
-  [https://github.com/bilza2023/taleem](https://github.com/bilza2023/taleem)
-
-* **taleem-browser — runtime slide player**
-  [https://github.com/bilza2023/taleem-browser](https://github.com/bilza2023/taleem-browser)
-
-* **taleem-slides — slide renderer**
-  [https://github.com/bilza2023/taleem-slides](https://github.com/bilza2023/taleem-slides)
-
-* **taleem-core — schemas & rules**
+* **Taleem Core** — schemas and rules
   [https://github.com/bilza2023/taleem-core](https://github.com/bilza2023/taleem-core)
 
-* **Gold-standard example deck**
-  [https://github.com/bilza2023/taleem/blob/master/decks/demo-gold.json](https://github.com/bilza2023/taleem/blob/master/decks/demo-gold.json)
+* **Taleem Slides** — JSON → HTML renderer
+  [https://github.com/bilza2023/taleem-slides](https://github.com/bilza2023/taleem-slides)
+
+* **Taleem Player** — browser & time-based runtime
+  [https://github.com/bilza2023/taleem-player](https://github.com/bilza2023/taleem-player)
 
 ---
 
