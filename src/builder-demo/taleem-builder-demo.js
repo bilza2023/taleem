@@ -1,4 +1,5 @@
-import TaleemBuilder from "./TaleemBuilder.js";
+// import TaleemBuilder from "./TaleemBuilder.js";
+import TaleemBuilder from  "https://unpkg.com/taleem-builder@latest/dist/taleem-builder.esm.js";
 
 export default function buildDemoDeck() {
   const builder = new TaleemBuilder({ mode: "mobile" });

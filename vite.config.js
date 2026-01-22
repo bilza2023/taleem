@@ -1,11 +1,18 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  optimizeDeps: {
-    include: ["taleem-slides"],
-    exclude: ["taleem-core"]
-  },
-  resolve: {
-    dedupe: ["taleem-core"]
+  base: "./",
+  build: {
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        builder: "arrow-keys.html",
+        builder: "autoplay.html",
+        builder: "background.html",
+        builder: "builder.html",
+        builder: "player.html",
+        builder: "range.html"
+      }
+    }
   }
 });

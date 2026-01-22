@@ -1,4 +1,4 @@
-import { createTaleemBrowser } from "taleem-player";
+import { createTaleemBrowser } from "https://unpkg.com/taleem-player@latest/dist/taleem-player.esm.js";
 import buildDemoDeck from "./taleem-builder-demo.js";
 
 const deck = buildDemoDeck();

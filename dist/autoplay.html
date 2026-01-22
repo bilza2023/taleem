@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem Browser – Autoplay Demo</title>
+
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/taleem.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/themes/paper.css"
+/>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <script type="module">
+    import { createTaleemBrowser } from
+      "https://unpkg.com/taleem-player@latest/dist/taleem-player.esm.js";
+
+    // import { goldenDeckV1 } from "./copy-golden-deck.js"
+    import { goldenDeckV1 } from 
+      "https://unpkg.com/taleem-core@latest/dist/taleem-core.esm.js";
+
+    import { resolveDeckImages } from "./src/resolveDeckImages.js";
+
+    // ----------------------------------
+    // clone canonical golden deck
+    // ----------------------------------
+    const deck = structuredClone(goldenDeckV1);
+    resolveDeckImages(deck, "./public/media/images/");
+
+    // ----------------------------------
+    // create browser
+    // ----------------------------------
+    const browser = createTaleemBrowser({
+      mount: "#app",
+      deck
+    });
+
+    let index = 0;
+    const MAX = deck.deck.length - 1;
+    const INTERVAL_MS = 2000; // 2 seconds
+
+    browser.render(index);
+
+    // ----------------------------------
+    // autoplay (index-based, looping)
+    // ----------------------------------
+    setInterval(() => {
+      index = index < MAX ? index + 1 : 0;
+      browser.render(index);
+    }, INTERVAL_MS);
+  </script>
+
+</body>
+</html>

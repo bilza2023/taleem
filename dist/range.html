@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem Browser – Range / Scrub Demo</title>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/taleem.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/themes/paper.css"
+/>
+ 
+
+  <style>
+    /* Demo-specific UI only */
+    .controls {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 10;
+    }
+
+    .controls input[type="range"] {
+      width: 100%;
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/builder-2db0bcec.js"></script>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <div class="controls">
+    <input id="slider" type="range" min="0" step="1" value="0" />
+  </div>
+
+  
+
+</body>
+</html>

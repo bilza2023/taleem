@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem Browser – Background Demo</title>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/taleem.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/themes/paper.css"
+/>
+  <style>
+    /* Demo-specific UI only */
+    .controls {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 10;
+    }
+
+    .controls input[type="range"] {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <div class="controls">
+    <input id="slider" type="range" min="0" step="1" value="0" />
+  </div>
+
+  <script type="module">
+    import { createTaleemBrowser } from
+      "https://unpkg.com/taleem-browser@1.0.0-rc.1/dist/taleem-browser.esm.js";
+
+    import { goldenDeckV1 } from
+      "https://unpkg.com/taleem-core@1.4.0-rc.1/dist/taleem-core.esm.js";
+
+    import { resolveDeckImages } from "./src/resolveDeckImages.js";
+
+    // ----------------------------------
+    // clone canonical golden deck
+    // ----------------------------------
+    const deck = structuredClone(goldenDeckV1);
+    resolveDeckImages(deck, "./public/media/images/");
+
+    // ----------------------------------
+    // BACKGROUND DEMO (only change)
+    // ----------------------------------
+    deck.background = {
+      backgroundColor: "#0b1220",
+      backgroundImage: "./public/media/images/wood.jpg",
+      backgroundImageOpacity: 0.25
+    };
+
+    // ----------------------------------
+    // create browser
+    // ----------------------------------
+    const browser = createTaleemBrowser({
+      mount: "#app",
+      deck
+    });
+
+    const slider = document.getElementById("slider");
+    slider.max = deck.deck.length - 1;
+
+    let index = 0;
+    browser.render(index);
+
+    slider.addEventListener("input", e => {
+      index = Number(e.target.value);
+      browser.render(index);
+    });
+  </script>
+
+</body>
+</html>
