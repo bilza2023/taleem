@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Taleem Player – Howler Time Demo</title>
+
+  <link rel="stylesheet" href="./taleem.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/taleem-player@latest/dist/css/themes/dark.css"
+  />
+</head>
+<body>
+
+  <div id="app"></div>
+  <div id="timebar">t = 0s</div>
+
+  <!-- Howler CDN -->
+  <script src="https://unpkg.com/howler@2.2.4/dist/howler.min.js"></script>
+
+  <script type="module">
+    import {
+      createTaleemPlayer,
+      resolveAssetPaths
+    } from "https://unpkg.com/taleem-player@latest/dist/taleem-player.esm.js";
+
+    import { goldenDeckV1 } from "./decks/eq-deck.js";
+
+    // ----------------------------------
+    // prepare deck
+    // ----------------------------------
+    const deck = structuredClone(goldenDeckV1);
+    resolveAssetPaths(deck, "./public/media/images/");
+
+    // ----------------------------------
+    // create player
+    // ----------------------------------
+    const player = createTaleemPlayer({
+      mount: "#app",
+      deck
+    });
+
+    const timebar = document.getElementById("timebar");
+
+    // ----------------------------------
+    // howler sound (CLOCK SOURCE)
+    // ----------------------------------
+    const sound = new Howl({
+      src: ["./public/media/audio/music.opus"],
+      html5: true
+    });
+
+    // ----------------------------------
+    // render loop driven by audio time
+    // ----------------------------------
+    function renderLoop() {
+      if (sound.playing()) {
+        const t = sound.seek(); // seconds
+        player.renderAt(t);
+        timebar.textContent = `t = ${t.toFixed(2)}s`;
+      }
+      requestAnimationFrame(renderLoop);
+    }
+
+    // start
+    sound.play();
+    renderLoop();
+
+    // debug
+    window.player = player;
+    window.sound = sound;
+  </script>
+
+</body>
+</html>

@@ -5,11 +5,15 @@
   <title>Taleem Browser – Range / Scrub Demo</title>
   <link
   rel="stylesheet"
-  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/taleem.css"
+  href="https://unpkg.com/taleem-player@latest/dist/css/taleem.css"
 />
+  <!-- <link
+  rel="stylesheet"
+  href="./taleem.css"
+/> -->
 <link
   rel="stylesheet"
-  href="https://unpkg.com/taleem-player@0.7.3-rc/dist/css/themes/paper.css"
+  href="https://unpkg.com/taleem-player@latest/dist/css/themes/paper.css"
 />
  
 
@@ -40,20 +44,18 @@
   </div>
 
   <script type="module">
-    import { createTaleemBrowser } from
+import { createTaleemBrowser,resolveAssetPaths } from
       "https://unpkg.com/taleem-player@latest/dist/taleem-player.esm.js";
+import { goldenDeckV1 } from
+  "https://unpkg.com/taleem-player@1.0.7/dist/spec/index.js";
 
-    // import { goldenDeckV1 } from "./copy-golden-deck.js"
-    import { goldenDeckV1 } from 
-      "https://unpkg.com/taleem-core@latest/dist/taleem-core.esm.js";
 
-    import { resolveDeckImages } from "./src/resolveDeckImages.js";
 
     // ----------------------------------
     // clone canonical golden deck
     // ----------------------------------
     const deck = structuredClone(goldenDeckV1);
-    resolveDeckImages(deck, "./public/media/images/");
+    resolveAssetPaths(deck, "./public/media/images/");
 
     // ----------------------------------
     // create browser
